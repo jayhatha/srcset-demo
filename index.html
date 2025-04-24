@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Srcset Width Descriptor Demo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      display: block;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Srcset with Width Descriptors and Sizes</h1>
+  <p>Resize the browser window to see how different image widths are selected based on viewport and pixel density.</p>
+  
+  <img 
+    src="https://placehold.co/600x400?text=600w" 
+    srcset="
+      https://placehold.co/300x200?text=300w 300w,
+      https://placehold.co/600x400?text=600w 600w,
+      https://placehold.co/900x600?text=900w 900w,
+      https://placehold.co/1200x800?text=1200w 1200w
+    "
+    sizes="(max-width: 400px) 300px,
+           (max-width: 800px) 600px,
+           (max-width: 1200px) 900px,
+           1200px"
+    alt="Demo image with srcset width descriptors"
+  />
+  
+</body>
+</html>

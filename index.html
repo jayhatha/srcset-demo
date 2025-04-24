@@ -19,6 +19,23 @@
       margin-bottom: 1rem;
     }
   </style>
+  <script>
+  function updatePixelInfo() {
+    const cssPixels = window.innerWidth;
+    const dpr = window.devicePixelRatio || 1;
+    const devicePixels = Math.round(cssPixels * dpr);
+
+    document.getElementById('css-px').textContent = cssPixels;
+    document.getElementById('dpr').textContent = dpr;
+    document.getElementById('device-px').textContent = devicePixels;
+  }
+  
+  // Initial update
+  updatePixelInfo();
+
+  // Update on resize (optional but useful)
+  window.addEventListener('resize', updatePixelInfo);
+</script>
 </head>
 <body>
   <h1>Srcset with Width Descriptors and Sizes</h1>
@@ -42,25 +59,9 @@
   CSS pixels: <span id="css-px"></span><br />
   Device Pixel Ratio: <span id="dpr"></span><br />
   Device pixels: <span id="device-px"></span>
-</div>
+  </div>
 
-<script>
-  function updatePixelInfo() {
-    const cssPixels = window.innerWidth;
-    const dpr = window.devicePixelRatio || 1;
-    const devicePixels = Math.round(cssPixels * dpr);
 
-    document.getElementById('css-px').textContent = cssPixels;
-    document.getElementById('dpr').textContent = dpr;
-    document.getElementById('device-px').textContent = devicePixels;
-  }
-  
-  // Initial update
-  updatePixelInfo();
-
-  // Update on resize (optional but useful)
-  window.addEventListener('resize', updatePixelInfo);
-</script>
   
 </body>
 </html>

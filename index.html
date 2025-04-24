@@ -38,6 +38,29 @@
            1200px"
     alt="Demo image with srcset width descriptors"
   />
+  <div id="pixel-info" style="font-family: monospace; margin-top: 1rem; padding: 10px; border: 1px solid #ccc; max-width: 300px;">
+  CSS pixels: <span id="css-px"></span><br />
+  Device Pixel Ratio: <span id="dpr"></span><br />
+  Device pixels: <span id="device-px"></span>
+</div>
+
+<script>
+  function updatePixelInfo() {
+    const cssPixels = window.innerWidth;
+    const dpr = window.devicePixelRatio || 1;
+    const devicePixels = Math.round(cssPixels * dpr);
+
+    document.getElementById('css-px').textContent = cssPixels;
+    document.getElementById('dpr').textContent = dpr;
+    document.getElementById('device-px').textContent = devicePixels;
+  }
+  
+  // Initial update
+  updatePixelInfo();
+
+  // Update on resize (optional but useful)
+  window.addEventListener('resize', updatePixelInfo);
+</script>
   
 </body>
 </html>
